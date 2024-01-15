@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\MigrarDatosFijos' => $baseDir . '/app/Console/Commands/MigrarDatosFijos.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
@@ -3506,6 +3507,15 @@ return array(
     'PHPUnit\\Logging\\TestDox\\TestResultCollectionIterator' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/TestResultCollectionIterator.php',
     'PHPUnit\\Logging\\TestDox\\TestResultCollector' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/TestResultCollector.php',
     'PHPUnit\\Logging\\TestDox\\TestSkippedSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestSkippedSubscriber.php',
+    'PHPUnit\\Logging\\TestDox\\TestTriggeredDeprecationSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredDeprecationSubscriber.php',
+    'PHPUnit\\Logging\\TestDox\\TestTriggeredNoticeSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredNoticeSubscriber.php',
+    'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpDeprecationSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpDeprecationSubscriber.php',
+    'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpNoticeSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpNoticeSubscriber.php',
+    'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpWarningSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpWarningSubscriber.php',
+    'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpunitDeprecationSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpunitDeprecationSubscriber.php',
+    'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpunitErrorSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpunitErrorSubscriber.php',
+    'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpunitWarningSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpunitWarningSubscriber.php',
+    'PHPUnit\\Logging\\TestDox\\TestTriggeredWarningSubscriber' => $vendorDir . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredWarningSubscriber.php',
     'PHPUnit\\Metadata\\After' => $vendorDir . '/phpunit/phpunit/src/Metadata/After.php',
     'PHPUnit\\Metadata\\AfterClass' => $vendorDir . '/phpunit/phpunit/src/Metadata/AfterClass.php',
     'PHPUnit\\Metadata\\Annotation\\Parser\\DocBlock' => $vendorDir . '/phpunit/phpunit/src/Metadata/Parser/Annotation/DocBlock.php',

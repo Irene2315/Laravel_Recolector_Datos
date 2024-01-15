@@ -20,7 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/api/migrar-provincias', [ProvinciaController::class, 'migrarDatosDesdeAPI']);
+//Route::get('/api/migrar-provincias', [ProvinciaController::class, 'migrarDatosDesdeAPI']);
+
+
 
 
 

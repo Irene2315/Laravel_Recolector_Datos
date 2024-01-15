@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Http\Controllers\ProvinciaController;
 
 class MigrarDatosFijos extends Command
 {
@@ -25,6 +26,10 @@ class MigrarDatosFijos extends Command
      */
     public function handle()
     {
-        //
+        $povinciaController = new ProvinciaController();
+        $result = $povinciaController->migrarDatosDesdeAPI();
+
+        $this->info($result);
+
     }
 }

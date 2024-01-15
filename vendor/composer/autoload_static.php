@@ -529,6 +529,7 @@ class ComposerStaticInitfe9a5577a98fab188e21319f50712552
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\MigrarDatosFijos' => __DIR__ . '/../..' . '/app/Console/Commands/MigrarDatosFijos.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -4029,6 +4030,15 @@ class ComposerStaticInitfe9a5577a98fab188e21319f50712552
         'PHPUnit\\Logging\\TestDox\\TestResultCollectionIterator' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/TestResultCollectionIterator.php',
         'PHPUnit\\Logging\\TestDox\\TestResultCollector' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/TestResultCollector.php',
         'PHPUnit\\Logging\\TestDox\\TestSkippedSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestSkippedSubscriber.php',
+        'PHPUnit\\Logging\\TestDox\\TestTriggeredDeprecationSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredDeprecationSubscriber.php',
+        'PHPUnit\\Logging\\TestDox\\TestTriggeredNoticeSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredNoticeSubscriber.php',
+        'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpDeprecationSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpDeprecationSubscriber.php',
+        'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpNoticeSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpNoticeSubscriber.php',
+        'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpWarningSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpWarningSubscriber.php',
+        'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpunitDeprecationSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpunitDeprecationSubscriber.php',
+        'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpunitErrorSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpunitErrorSubscriber.php',
+        'PHPUnit\\Logging\\TestDox\\TestTriggeredPhpunitWarningSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredPhpunitWarningSubscriber.php',
+        'PHPUnit\\Logging\\TestDox\\TestTriggeredWarningSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Logging/TestDox/TestResult/Subscriber/TestTriggeredWarningSubscriber.php',
         'PHPUnit\\Metadata\\After' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/After.php',
         'PHPUnit\\Metadata\\AfterClass' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/AfterClass.php',
         'PHPUnit\\Metadata\\Annotation\\Parser\\DocBlock' => __DIR__ . '/..' . '/phpunit/phpunit/src/Metadata/Parser/Annotation/DocBlock.php',

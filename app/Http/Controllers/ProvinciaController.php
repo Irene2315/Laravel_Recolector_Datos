@@ -23,6 +23,7 @@ class ProvinciaController extends Controller
             // Iterar sobre los datos y almacenarlos en la base de datos
             foreach ($filteredData as $provinciaData) {
                 Provincia::create([
+                    'id' => $provinciaData['CODPROV'], 
                     'nombre' => $provinciaData['NOMBRE_PROVINCIA']   
                 ]);
             }
