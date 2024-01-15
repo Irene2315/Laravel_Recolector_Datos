@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Lectura_Item_Meteo extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'idLugar',
+        'hora/fecha',
+        'valorTemp',
+        'valorHumedad',
+        'valorViento',
+        'valorPrecipitacion',
+        'prevision'
+
+    ];
+
+    public function lugar(){
+        return $this->belongsTo(Lugar::class);  
+    }
+}
