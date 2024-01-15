@@ -8,6 +8,30 @@ use Illuminate\Support\Facades\Http;
 
 class ProvinciaController extends Controller
 {
+   
+    public function migrarDatosDesdeAPI()
+    {
+        // Realizar la solicitud GET a la API
+        $response = Http::get('https://www.el-tiempo.net/api/json/v2/provincias');
+
+        if ($response->successful()) {
+            // Obtener los datos de la respuesta JSON
+            $data = $response->json();
+
+            $filteredData = collect($data['provincias'])->where('CODAUTON', '16')->all();
+
+            // Iterar sobre los datos y almacenarlos en la base de datos
+            foreach ($filteredData as $provinciaData) {
+                Provincia::create([
+                    'nombre' => $provinciaData['NOMBRE_PROVINCIA']   
+                ]);
+            }
+
+            return response()->json(['message' => 'Datos migrados exitosamente']);
+        } else {
+            return response()->json(['error' => 'No se pudo obtener la información de la API'], 500);
+        }
+    }
     /**
      * Display a listing of the resource.
      */
