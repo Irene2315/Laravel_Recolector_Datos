@@ -27,7 +27,7 @@ class MigrarDatosFijos extends Command
     public function handle()
     {
         $povinciaController = new ProvinciaController();
-        $result = $povinciaController->migrarDatosDesdeAPI();
+        $result = $povinciaController->migrarDatosProvincia();
 
         $this->info($result);
 

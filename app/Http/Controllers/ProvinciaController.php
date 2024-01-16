@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Http;
 class ProvinciaController extends Controller
 {
    
-    public function migrarDatosDesdeAPI()
+    public function migrarDatosProvincia()
     {
         // Realizar la solicitud GET a la API
         $response = Http::get('https://www.el-tiempo.net/api/json/v2/provincias');
