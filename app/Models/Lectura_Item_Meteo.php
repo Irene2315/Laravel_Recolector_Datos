@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lectura_Item_Meteo extends Model
 {
     use HasFactory;
-
+    protected $table = 'lectura_items_meteo';
     protected $fillable = [
         'idLugar',
         'hora/fecha',

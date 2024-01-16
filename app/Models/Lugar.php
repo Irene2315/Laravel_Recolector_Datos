@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Lugar extends Model
 {
     use HasFactory;
-
+    protected $table = 'lugares';
     protected $fillable = [
+        'id',
         'nombre',
         'geolocalizacion',
         'idProvincia'
