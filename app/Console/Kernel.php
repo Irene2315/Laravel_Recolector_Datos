@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
        $schedule->exec('./vendor/bin/sail artisan app:migrar-datos-fijos')->withoutOverlapping();
+       $schedule->exec('./vendor/bin/sail artisan app:migrar-items-cada-x-tiempo')->everyFifteenMinutes();
     }
 
     /**
