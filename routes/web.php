@@ -24,4 +24,4 @@ Route::get('/', function () {
 
 //Route::get('/api/migrar-lugares-Bizkaia', [LugarController::class, 'migrarDatosBizkaia']);
 
-Route::get('/api/migrar-lugares-Guipuzkoa', [LugarController::class, 'migrarDatosGuipuzkoa']);
+//Route::get('/api/migrar-lugares-Guipuzkoa', [LugarController::class, 'migrarDatosGuipuzkoa']);

@@ -33,8 +33,12 @@ class MigrarDatosFijos extends Command
         $bizkaiaController = new LugarController();
         $resultBizkaia = $bizkaiaController->migrarDatosBizkaia();
 
+        $guipuzkoaController = new LugarController();
+        $resultGuipuzkoa = $guipuzkoaController->migrarDatosGuipuzkoa();
+
         $this->info($resultProvincia);
         $this->info($resultBizkaia);
+        $this->info($resultGuipuzkoa);
 
     }
 }
