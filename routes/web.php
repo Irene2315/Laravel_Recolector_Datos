@@ -25,3 +25,34 @@ Route::get('/', function () {
 //Route::get('/api/migrar-lugares-Bizkaia', [LugarController::class, 'migrarDatosBizkaia']);
 
 //Route::get('/api/migrar-lugares-Guipuzkoa', [LugarController::class, 'migrarDatosGuipuzkoa']);
+
+
+
+//https://api.openweathermap.org/data/2.5/weather?lat=43.3374&lon=-1.7885&appid=6d436ee157588ac7925207ca597a01a9
+
+Route::get('/conseguirPronosticoTiempoReal', function () {
+    
+    $response = Http::get('https://api.openweathermap.org/data/2.5/weather?lat=43.3374&lon=-1.7885&appid=6d436ee157588ac7925207ca597a01a9');
+
+    if ($response->successful()) {
+        
+        $data = $response->json();
+
+        // Acceder a los campos 'wind' y 'main' directamente
+        $windData = $data['wind'];
+        $mainData = $data['main'];
+        $weatherData = $data['weather'];
+
+        // Combinar los datos en un solo array
+        $filteredData = [
+            'wind' => $windData,
+            'main' => $mainData,
+            'weather' => $weatherData,
+        ];
+
+        return response()->json($filteredData);
+    } else {
+        
+        return response()->json(['error' => 'No se pudo obtener la información del pronóstico del tiempo'], 500);
+    }
+});

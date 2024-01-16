@@ -21,7 +21,8 @@ return new class extends Migration
         Schema::create('lugares', function (Blueprint $table) {
             $table->id('id');
             $table->string('nombre');
-            $table->string('geolocalizacion');
+            $table->float('latitud');
+            $table->float('logitud');
             $table->unsignedBigInteger('idProvincia');
             $table->timestamps();
             
