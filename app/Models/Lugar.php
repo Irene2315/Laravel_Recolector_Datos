@@ -12,7 +12,8 @@ class Lugar extends Model
     protected $fillable = [
         'id',
         'nombre',
-        'geolocalizacion',
+        'latitud',
+        'logitud',
         'idProvincia'
     ];
 
