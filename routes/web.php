@@ -27,5 +27,18 @@ Route::get('/', function () {
 
 //Route::get('/api/migrar-lugares-Guipuzkoa', [LugarController::class, 'migrarDatosGuipuzkoa']);
 
-//Route::get('/api/migrar-datos-meteorologicos', [LecturaItemMeteoController::class, 'migrarDatosMeteoIrun']);
+//Route::get('/api/migrar-datos-meteorologicos-irun', [LecturaItemMeteoController::class, 'migrarDatosMeteoIrun']);
 
+//Route::get('/api/migrar-datos-meteorologicos-tolosa', [LecturaItemMeteoController::class, 'migrarDatosMeteoTolosa']);
+
+//Route::get('/api/migrar-datos-meteorologicos-deba', [LecturaItemMeteoController::class, 'migrarDatosMeteoDeba']);
+
+//Route::get('/api/migrar-datos-meteorologicos-azpeitia', [LecturaItemMeteoController::class, 'migrarDatosMeteoAzpeitia']);
+
+//Route::get('/api/migrar-datos-meteorologicos-bermeo', [LecturaItemMeteoController::class, 'migrarDatosMeteoBermeo']);
+
+//Route::get('/api/migrar-datos-meteorologicos-donosti', [LecturaItemMeteoController::class, 'migrarDatosMeteoDonosti']);
+
+//Route::get('/api/migrar-datos-meteorologicos-eibar', [LecturaItemMeteoController::class, 'migrarDatosMeteoEibar']);
+
+//Route::get('/api/migrar-datos-meteorologicos-bilbao', [LecturaItemMeteoController::class, 'migrarDatosMeteoBilbao']);

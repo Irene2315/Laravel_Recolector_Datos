@@ -37,7 +37,7 @@ class LecturaItemMeteoController extends Controller
             } elseif ($codigoClima == 800) {
 
                 $descripcionClima = 'Sol';
-            } elseif ($codigoClima >= 801 && $codigoClima < 804) {
+            } elseif ($codigoClima >= 801 && $codigoClima < 805) {
 
                 $descripcionClima = 'Nublado';
             }
@@ -55,11 +55,353 @@ class LecturaItemMeteoController extends Controller
                 'prevision' => $descripcionClima,
             ]);
 
+            return response()->json(['message' => 'Datos meteorológicos Irun migrados exitosamente']);
+        } else {
+            return response()->json(['error' => 'No se pudo obtener la información de la API meteorológica(Irun)'], 500);
+        }
+    }
+    public function migrarDatosMeteoTolosa()
+    {
+        // Realizar la solicitud GET
+        $response = Http::get('https://api.openweathermap.org/data/2.5/weather?lat=43.1363&lon=-2.0778&appid=6d436ee157588ac7925207ca597a01a9');
+
+        if ($response->successful()) {
+            $data = $response->json();
+
+            $windData = $data['wind'];
+            $mainData = $data['main'];
+            $weatherData = $data['weather'][0];
+            $temperaturaCelsius = $mainData['temp'] - 273.15;
+            $fechaHoraActual = date('Y-m-d H:i:s');
+            
+            $descripcionClima = '';
+            $codigoClima = $weatherData['id'];
+            if ($codigoClima >= 200 && $codigoClima < 600) {
+
+                $descripcionClima = 'Lluvia';
+            } elseif ($codigoClima >= 600 && $codigoClima < 623) {
+
+                $descripcionClima = 'Nieve';
+            } elseif ($codigoClima == 800) {
+
+                $descripcionClima = 'Sol';
+            } elseif ($codigoClima >= 801 && $codigoClima < 805) {
+
+                $descripcionClima = 'Nublado';
+            }
+            else {
+                $descripcionClima = 'Descripción predeterminada';
+            }
+
+            // Almacenar los datos en la base de datos
+            Lectura_Item_Meteo::create([
+                'idLugar' => 20071,
+                'fecha_hora' => $fechaHoraActual,
+                'valorTemp' => $temperaturaCelsius,
+                'valorHumedad' => $mainData['humidity'],
+                'valorViento' => $windData['speed'],
+                'prevision' => $descripcionClima,
+            ]);
+
             return response()->json(['message' => 'Datos meteorológicos migrados exitosamente']);
         } else {
             return response()->json(['error' => 'No se pudo obtener la información de la API meteorológica'], 500);
         }
     }
+
+    public function migrarDatosMeteoDeba()
+    {
+        // Realizar la solicitud GET
+        $response = Http::get('https://api.openweathermap.org/data/2.5/weather?lat=43.2952&lon=-2.3545&appid=6d436ee157588ac7925207ca597a01a9');
+
+        if ($response->successful()) {
+            $data = $response->json();
+
+            $windData = $data['wind'];
+            $mainData = $data['main'];
+            $weatherData = $data['weather'][0];
+            $temperaturaCelsius = $mainData['temp'] - 273.15;
+            $fechaHoraActual = date('Y-m-d H:i:s');
+            
+            $descripcionClima = '';
+            $codigoClima = $weatherData['id'];
+            if ($codigoClima >= 200 && $codigoClima < 600) {
+
+                $descripcionClima = 'Lluvia';
+            } elseif ($codigoClima >= 600 && $codigoClima < 623) {
+
+                $descripcionClima = 'Nieve';
+            } elseif ($codigoClima == 800) {
+
+                $descripcionClima = 'Sol';
+            } elseif ($codigoClima >= 801 && $codigoClima < 805) {
+
+                $descripcionClima = 'Nublado';
+            }
+            else {
+                $descripcionClima = 'Descripción predeterminada';
+            }
+
+            // Almacenar los datos en la base de datos
+            Lectura_Item_Meteo::create([
+                'idLugar' => 20029,
+                'fecha_hora' => $fechaHoraActual,
+                'valorTemp' => $temperaturaCelsius,
+                'valorHumedad' => $mainData['humidity'],
+                'valorViento' => $windData['speed'],
+                'prevision' => $descripcionClima,
+            ]);
+
+            return response()->json(['message' => 'Datos meteorológicos migrados exitosamente']);
+        } else {
+            return response()->json(['error' => 'No se pudo obtener la información de la API meteorológica'], 500);
+        }
+    }
+
+    public function migrarDatosMeteoAzpeitia()
+    {
+        // Realizar la solicitud GET
+        $response = Http::get('https://api.openweathermap.org/data/2.5/weather?lat=43.1849&lon=-2.2656&appid=6d436ee157588ac7925207ca597a01a9');
+
+        if ($response->successful()) {
+            $data = $response->json();
+
+            $windData = $data['wind'];
+            $mainData = $data['main'];
+            $weatherData = $data['weather'][0];
+            $temperaturaCelsius = $mainData['temp'] - 273.15;
+            $fechaHoraActual = date('Y-m-d H:i:s');
+            
+            $descripcionClima = '';
+            $codigoClima = $weatherData['id'];
+            if ($codigoClima >= 200 && $codigoClima < 600) {
+
+                $descripcionClima = 'Lluvia';
+            } elseif ($codigoClima >= 600 && $codigoClima < 623) {
+
+                $descripcionClima = 'Nieve';
+            } elseif ($codigoClima == 800) {
+
+                $descripcionClima = 'Sol';
+            } elseif ($codigoClima >= 801 && $codigoClima < 805) {
+
+                $descripcionClima = 'Nublado';
+            }
+            else {
+                $descripcionClima = 'Descripción predeterminada';
+            }
+
+            // Almacenar los datos en la base de datos
+            Lectura_Item_Meteo::create([
+                'idLugar' => 20018,
+                'fecha_hora' => $fechaHoraActual,
+                'valorTemp' => $temperaturaCelsius,
+                'valorHumedad' => $mainData['humidity'],
+                'valorViento' => $windData['speed'],
+                'prevision' => $descripcionClima,
+            ]);
+
+            return response()->json(['message' => 'Datos meteorológicos migrados exitosamente']);
+        } else {
+            return response()->json(['error' => 'No se pudo obtener la información de la API meteorológica'], 500);
+        }
+    }
+
+    public function migrarDatosMeteoBermeo()
+    {
+        // Realizar la solicitud GET
+        $response = Http::get('https://api.openweathermap.org/data/2.5/weather?lat=43.2952&lon=-2.7253&appid=6d436ee157588ac7925207ca597a01a9');
+
+        if ($response->successful()) {
+            $data = $response->json();
+
+            $windData = $data['wind'];
+            $mainData = $data['main'];
+            $weatherData = $data['weather'][0];
+            $temperaturaCelsius = $mainData['temp'] - 273.15;
+            $fechaHoraActual = date('Y-m-d H:i:s');
+            
+            $descripcionClima = '';
+            $codigoClima = $weatherData['id'];
+            if ($codigoClima >= 200 && $codigoClima < 600) {
+
+                $descripcionClima = 'Lluvia';
+            } elseif ($codigoClima >= 600 && $codigoClima < 623) {
+
+                $descripcionClima = 'Nieve';
+            } elseif ($codigoClima == 800) {
+
+                $descripcionClima = 'Sol';
+            } elseif ($codigoClima >= 801 && $codigoClima < 805) {
+
+                $descripcionClima = 'Nublado';
+            }
+            else {
+                $descripcionClima = 'Descripción predeterminada';
+            }
+
+            // Almacenar los datos en la base de datos
+            Lectura_Item_Meteo::create([
+                'idLugar' => 48017,
+                'fecha_hora' => $fechaHoraActual,
+                'valorTemp' => $temperaturaCelsius,
+                'valorHumedad' => $mainData['humidity'],
+                'valorViento' => $windData['speed'],
+                'prevision' => $descripcionClima,
+            ]);
+
+            return response()->json(['message' => 'Datos meteorológicos migrados exitosamente']);
+        } else {
+            return response()->json(['error' => 'No se pudo obtener la información de la API meteorológica'], 500);
+        }
+    }
+
+    public function migrarDatosMeteoDonosti()
+    {
+        // Realizar la solicitud GET
+        $response = Http::get('https://api.openweathermap.org/data/2.5/weather?lat=43.3212&lon=-1.9834&appid=6d436ee157588ac7925207ca597a01a9');
+
+        if ($response->successful()) {
+            $data = $response->json();
+
+            $windData = $data['wind'];
+            $mainData = $data['main'];
+            $weatherData = $data['weather'][0];
+            $temperaturaCelsius = $mainData['temp'] - 273.15;
+            $fechaHoraActual = date('Y-m-d H:i:s');
+            
+            $descripcionClima = '';
+            $codigoClima = $weatherData['id'];
+            if ($codigoClima >= 200 && $codigoClima < 600) {
+
+                $descripcionClima = 'Lluvia';
+            } elseif ($codigoClima >= 600 && $codigoClima < 623) {
+
+                $descripcionClima = 'Nieve';
+            } elseif ($codigoClima == 800) {
+
+                $descripcionClima = 'Sol';
+            } elseif ($codigoClima >= 801 && $codigoClima < 805) {
+
+                $descripcionClima = 'Nublado';
+            }
+            else {
+                $descripcionClima = 'Descripción predeterminada';
+            }
+
+            // Almacenar los datos en la base de datos
+            Lectura_Item_Meteo::create([
+                'idLugar' => 20069,
+                'fecha_hora' => $fechaHoraActual,
+                'valorTemp' => $temperaturaCelsius,
+                'valorHumedad' => $mainData['humidity'],
+                'valorViento' => $windData['speed'],
+                'prevision' => $descripcionClima,
+            ]);
+
+            return response()->json(['message' => 'Datos meteorológicos migrados exitosamente']);
+        } else {
+            return response()->json(['error' => 'No se pudo obtener la información de la API meteorológica'], 500);
+        }
+    }
+    public function migrarDatosMeteoEibar()
+    {
+        // Realizar la solicitud GET
+        $response = Http::get('https://api.openweathermap.org/data/2.5/weather?lat=43.1843&lon=-2.4728&appid=6d436ee157588ac7925207ca597a01a9');
+
+        if ($response->successful()) {
+            $data = $response->json();
+
+            $windData = $data['wind'];
+            $mainData = $data['main'];
+            $weatherData = $data['weather'][0];
+            $temperaturaCelsius = $mainData['temp'] - 273.15;
+            $fechaHoraActual = date('Y-m-d H:i:s');
+            
+            $descripcionClima = '';
+            $codigoClima = $weatherData['id'];
+            if ($codigoClima >= 200 && $codigoClima < 600) {
+
+                $descripcionClima = 'Lluvia';
+            } elseif ($codigoClima >= 600 && $codigoClima < 623) {
+
+                $descripcionClima = 'Nieve';
+            } elseif ($codigoClima == 800) {
+
+                $descripcionClima = 'Sol';
+            } elseif ($codigoClima >= 801 && $codigoClima < 805) {
+
+                $descripcionClima = 'Nublado';
+            }
+            else {
+                $descripcionClima = 'Descripción predeterminada';
+            }
+
+            // Almacenar los datos en la base de datos
+            Lectura_Item_Meteo::create([
+                'idLugar' => 20030,
+                'fecha_hora' => $fechaHoraActual,
+                'valorTemp' => $temperaturaCelsius,
+                'valorHumedad' => $mainData['humidity'],
+                'valorViento' => $windData['speed'],
+                'prevision' => $descripcionClima,
+            ]);
+
+            return response()->json(['message' => 'Datos meteorológicos migrados exitosamente']);
+        } else {
+            return response()->json(['error' => 'No se pudo obtener la información de la API meteorológica'], 500);
+        }
+    }
+
+    public function migrarDatosMeteoBilbao()
+    {
+        // Realizar la solicitud GET
+        $response = Http::get('https://api.openweathermap.org/data/2.5/weather?lat=43.2642&lon=-2.93758&appid=6d436ee157588ac7925207ca597a01a9');
+
+        if ($response->successful()) {
+            $data = $response->json();
+
+            $windData = $data['wind'];
+            $mainData = $data['main'];
+            $weatherData = $data['weather'][0];
+            $temperaturaCelsius = $mainData['temp'] - 273.15;
+            $fechaHoraActual = date('Y-m-d H:i:s');
+            
+            $descripcionClima = '';
+            $codigoClima = $weatherData['id'];
+            if ($codigoClima >= 200 && $codigoClima < 600) {
+
+                $descripcionClima = 'Lluvia';
+            } elseif ($codigoClima >= 600 && $codigoClima < 623) {
+
+                $descripcionClima = 'Nieve';
+            } elseif ($codigoClima == 800) {
+
+                $descripcionClima = 'Sol';
+            } elseif ($codigoClima >= 801 && $codigoClima < 805) {
+
+                $descripcionClima = 'Nublado';
+            }
+            else {
+                $descripcionClima = 'Descripción predeterminada';
+            }
+
+            // Almacenar los datos en la base de datos
+            Lectura_Item_Meteo::create([
+                'idLugar' => 20030,
+                'fecha_hora' => $fechaHoraActual,
+                'valorTemp' => $temperaturaCelsius,
+                'valorHumedad' => $mainData['humidity'],
+                'valorViento' => $windData['speed'],
+                'prevision' => $descripcionClima,
+            ]);
+
+            return response()->json(['message' => 'Datos meteorológicos migrados exitosamente']);
+        } else {
+            return response()->json(['error' => 'No se pudo obtener la información de la API meteorológica'], 500);
+        }
+    }
+
 
     /**
      * Display a listing of the resource.
