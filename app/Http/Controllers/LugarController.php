@@ -40,6 +40,38 @@ class LugarController extends Controller
             return response()->json(['error' => 'No se pudo obtener la información de la API(Lugares Bizkaia)'], 500);
         }
     }
+
+    public function migrarDatosGuipuzkoa()
+    {
+        $response = Http::get('https://www.el-tiempo.net/api/json/v2/provincias/20/municipios');
+    
+        if ($response->successful()) {
+            
+            $data = $response->json();
+    
+                $filteredData = collect($data['municipios'])
+                ->whereIn('CODIGOINE', ['20030000000','20029000000','20018000000','20071000000','20069000000','20045000000'])
+                ->map(function ($lugarData) {
+                    $lugarData['CODIGOINE'] = substr($lugarData['CODIGOINE'], 0, 5);
+                    return $lugarData;
+                })
+                ->all();
+            foreach ($filteredData as $lugarData) {
+                    Lugar::create([
+                        'id' => $lugarData['CODIGOINE'],
+                        'nombre' => $lugarData['NOMBRE'],
+                        'geolocalizacion' => $lugarData['COD_GEO'],
+                        'idProvincia' => $lugarData['CODPROV']
+                    ]);
+            }
+                
+            return response()->json(['message' => 'Lugares de Guipuzkoa migrados EXITOSAMENTE']);
+        } else {
+            
+            return response()->json(['error' => 'No se pudo obtener la información de la API(Lugares Guipuzkoa)'], 500);
+        }
+    }
+    
     
     /**
      * Display a listing of the resource.

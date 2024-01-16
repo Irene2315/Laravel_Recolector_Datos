@@ -24,22 +24,4 @@ Route::get('/', function () {
 
 //Route::get('/api/migrar-lugares-Bizkaia', [LugarController::class, 'migrarDatosBizkaia']);
 
-Route::get('/conseguirLugaresGuipuzkoa', function () {
-    
-    $response = Http::get('https://www.el-tiempo.net/api/json/v2/provincias/20/municipios');
-
-    if ($response->successful()) {
-        
-        $data = $response->json();
-
-            $filteredData = collect($data['municipios'])
-            ->whereIn('CODIGOINE', ['20030000000','20029000000','20018000000','20071000000','20069000000','20045000000'])
-            ->all();
-
-        
-        return response()->json($filteredData);
-    } else {
-        
-        return response()->json(['error' => 'No se pudo obtener la información de las provincias'], 500);
-    }
-});
+Route::get('/api/migrar-lugares-Guipuzkoa', [LugarController::class, 'migrarDatosGuipuzkoa']);
