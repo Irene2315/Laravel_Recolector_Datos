@@ -15,7 +15,6 @@ class Lectura_Item_Meteo extends Model
         'valorTemp',
         'valorHumedad',
         'valorViento',
-        'valorPrecipitacion',
         'prevision'
 
     ];

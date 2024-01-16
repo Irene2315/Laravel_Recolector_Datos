@@ -4,9 +4,63 @@ namespace App\Http\Controllers;
 
 use App\Models\Lectura_Item_Meteo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class LecturaItemMeteoController extends Controller
 {
+
+    public function migrarDatosMeteoIrun()
+    {
+        // Realizar la solicitud GET
+        $response = Http::get('https://api.openweathermap.org/data/2.5/weather?lat=43.3374&lon=-1.7885&appid=6d436ee157588ac7925207ca597a01a9');
+
+        if ($response->successful()) {
+            $data = $response->json();
+
+            $windData = $data['wind'];
+            $mainData = $data['main'];
+            $weatherData = $data['weather'][0];
+            $temperaturaCelsius = $mainData['temp'] - 273.15;
+            $fechaHoraActual = date('Y-m-d H:i:s');
+            
+
+            // Asignar descripción según el ID del clima
+            //https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
+            $descripcionClima = '';
+            $codigoClima = $weatherData['id'];
+            if ($codigoClima >= 200 && $codigoClima < 600) {
+
+                $descripcionClima = 'Lluvia';
+            } elseif ($codigoClima >= 600 && $codigoClima < 623) {
+
+                $descripcionClima = 'Nieve';
+            } elseif ($codigoClima == 800) {
+
+                $descripcionClima = 'Sol';
+            } elseif ($codigoClima >= 801 && $codigoClima < 804) {
+
+                $descripcionClima = 'Nublado';
+            }
+            else {
+                $descripcionClima = 'Descripción predeterminada';
+            }
+
+            // Almacenar los datos en la base de datos
+            Lectura_Item_Meteo::create([
+                'idLugar' => 20045,
+                'fecha_hora' => $fechaHoraActual,
+                'valorTemp' => $temperaturaCelsius,
+                'valorHumedad' => $mainData['humidity'],
+                'valorViento' => $windData['speed'],
+                'prevision' => $descripcionClima,
+            ]);
+
+            return response()->json(['message' => 'Datos meteorológicos migrados exitosamente']);
+        } else {
+            return response()->json(['error' => 'No se pudo obtener la información de la API meteorológica'], 500);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      */

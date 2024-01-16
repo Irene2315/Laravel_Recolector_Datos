@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lectura_item_meteos', function (Blueprint $table) {
+        Schema::create('lectura_items_meteo', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('idLugar');
-            $table->dateTime('fecha_hora');
+            $table->dateTime('fecha_hora')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->float('valorTemp');
             $table->float('valorHumedad');
             $table->float('valorViento');
-            $table->float('valorPrecipitacion');
             $table->string('prevision');
             $table->timestamps();
             
