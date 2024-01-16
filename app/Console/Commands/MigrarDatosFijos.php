@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Http\Controllers\ProvinciaController;
+use App\Http\Controllers\LugarController;
 
 class MigrarDatosFijos extends Command
 {
@@ -26,10 +27,14 @@ class MigrarDatosFijos extends Command
      */
     public function handle()
     {
-        $povinciaController = new ProvinciaController();
-        $result = $povinciaController->migrarDatosProvincia();
+        $provinciaController = new ProvinciaController();
+        $resultProvincia = $provinciaController->migrarDatosProvincia();
 
-        $this->info($result);
+        $bizkaiaController = new LugarController();
+        $resultBizkaia = $bizkaiaController->migrarDatosBizkaia();
+
+        $this->info($resultProvincia);
+        $this->info($resultBizkaia);
 
     }
 }
