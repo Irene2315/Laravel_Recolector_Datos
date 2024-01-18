@@ -30,7 +30,7 @@ class LugarController extends Controller
                     'id' => $lugarData['CODIGOINE'],
                     'nombre' => $lugarData['NOMBRE'],
                     'latitud' => $lugarData['LATITUD_ETRS89_REGCAN95'],
-                    'logitud' => $lugarData['LONGITUD_ETRS89_REGCAN95'],
+                    'longitud' => $lugarData['LONGITUD_ETRS89_REGCAN95'],
                     'idProvincia' => $lugarData['CODPROV']
                 ]);
             }
@@ -62,7 +62,7 @@ class LugarController extends Controller
                     'id' => $lugarData['CODIGOINE'],
                     'nombre' => $lugarData['NOMBRE'],
                     'latitud' => $lugarData['LATITUD_ETRS89_REGCAN95'],
-                    'logitud' => $lugarData['LONGITUD_ETRS89_REGCAN95'],
+                    'longitud' => $lugarData['LONGITUD_ETRS89_REGCAN95'],
                     'idProvincia' => $lugarData['CODPROV']
                 ]);
             }

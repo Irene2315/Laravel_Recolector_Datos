@@ -13,7 +13,7 @@ class Lugar extends Model
         'id',
         'nombre',
         'latitud',
-        'logitud',
+        'longitud',
         'idProvincia'
     ];
 

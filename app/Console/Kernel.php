@@ -13,8 +13,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
-       //$schedule->exec('./vendor/bin/sail artisan app:migrar-datos-fijos')->withoutOverlapping();
-       $schedule->exec('./vendor/bin/sail artisan app:migrar-items-cada-x-tiempo')->everyFifteenMinutes();
+       $schedule->exec('php artisan app:migrar-datos-fijos');
+       $schedule->exec('php artisan app:migrar-items-cada-x-tiempo');
     }
 
     /**

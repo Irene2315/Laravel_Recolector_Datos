@@ -22,7 +22,7 @@ return new class extends Migration
             $table->id('id');
             $table->string('nombre');
             $table->float('latitud');
-            $table->float('logitud');
+            $table->float('longitud');
             $table->unsignedBigInteger('idProvincia');
             $table->timestamps();
             
