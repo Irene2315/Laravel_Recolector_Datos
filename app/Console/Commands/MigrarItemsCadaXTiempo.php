@@ -26,37 +26,10 @@ class MigrarItemsCadaXTiempo extends Command
      */
     public function handle()
     {
-        $meteoIrunController = new LecturaItemMeteoController();
-        $resultIrun = $meteoIrunController->migrarDatosMeteoIrun();
+        $meteoController = new LecturaItemMeteoController();
+        $result = $meteoController->migrarDatosMeteo();
 
-        $meteoTolosaController = new LecturaItemMeteoController();
-        $resultTolosa = $meteoTolosaController->migrarDatosMeteoTolosa();
-
-        $meteoDebaController = new LecturaItemMeteoController();
-        $resultDeba = $meteoDebaController->migrarDatosMeteoTolosa();
-
-        $meteoApeitiaController = new LecturaItemMeteoController();
-        $resultAzpeitia = $meteoApeitiaController->migrarDatosMeteoAzpeitia();
-
-        $meteoBermeoController = new LecturaItemMeteoController();
-        $resultBermeo = $meteoBermeoController->migrarDatosMeteoBermeo();
-
-        $meteoDonostiController = new LecturaItemMeteoController();
-        $resultDonosti = $meteoDonostiController->migrarDatosMeteoDonosti();
-
-        $meteoEibarController = new LecturaItemMeteoController();
-        $resultEibar = $meteoEibarController->migrarDatosMeteoEibar();
-
-        $meteoBilbaoController = new LecturaItemMeteoController();
-        $resultBilbao = $meteoBilbaoController->migrarDatosMeteoBilbao();
-
-        $this->info($resultIrun);
-        $this->info($resultTolosa);
-        $this->info($resultDeba);
-        $this->info($resultAzpeitia);
-        $this->info($resultBermeo);
-        $this->info($resultDonosti);
-        $this->info($resultEibar);
-        $this->info($resultBilbao);
+        $this->info($result);
+        
     }
 }
