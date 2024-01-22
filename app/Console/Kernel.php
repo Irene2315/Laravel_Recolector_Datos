@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
        $schedule->exec('php artisan app:migrar-datos-fijos');
-       $schedule->exec('php artisan app:migrar-items-cada-x-tiempo');
+       $schedule->exec('php artisan app:migrar-items-cada-x-tiempo')->everyFifteenMinutes();
     }
 
     /**
