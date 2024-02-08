@@ -6,6 +6,7 @@ use App\Models\Lectura_Item_Meteo;
 use App\Models\Lugar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Carbon\Carbon;
 
 class LecturaItemMeteoController extends Controller
 {
@@ -27,9 +28,7 @@ class LecturaItemMeteoController extends Controller
                 $mainData = $data['main'];
                 $weatherData = $data['weather'][0];
                 $temperaturaCelsius = $mainData['temp'] - 273.15;
-                $fechaHoraActual = now();  // Use Laravel's now() function for the current timestamp
-    
-                // Asignar descripción según el ID del clima
+                $fechaHoraActual = Carbon::now('Europe/Madrid') ; 
                 $codigoClima = $weatherData['id'];
                 $descripcionClima = '';
     
